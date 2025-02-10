@@ -1,5 +1,9 @@
 # Webknot Java Assignment
 
+## Requirement
+![PHOTO-2025-02-10-11-17-23](https://github.com/user-attachments/assets/c2a23f3d-8842-41d8-9770-66f7b08cda9f)
+
+
 Some Output Screenshots for inputs
 
 - <img width="1327" alt="Screenshot 2025-02-10 at 1 31 38 PM" src="https://github.com/user-attachments/assets/7945c355-c93d-4c49-a73a-30a96d09aa63" />
