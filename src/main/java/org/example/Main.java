@@ -5,13 +5,14 @@ import java.util.regex.Pattern;
 public class Main {
     public static double evaluateExpression(String expression) {
         char[] tokens = expression.toCharArray();
-
+        //Stack  for Operator
         Stack<Double> values = new Stack<>();
+        //Stack for Operands
         Stack<Character> operators = new Stack<>();
 
         for (int i = 0; i < tokens.length; i++) {
             if (tokens[i] == ' ') continue;
-
+            //Reading operands with decimal value and converting it to double
             if ((tokens[i] >= '0' && tokens[i] <= '9') || tokens[i] == '.') {
                 StringBuilder sb = new StringBuilder();
                 while (i < tokens.length && (Character.isDigit(tokens[i]) || tokens[i] == '.')) {
@@ -22,7 +23,10 @@ public class Main {
                 i--;
             } else if (tokens[i] == '(') {
                 operators.push(tokens[i]);
-            } else if (tokens[i] == ')') {
+
+            }
+            //Performing operation for  brackets
+            else if (tokens[i] == ')') {
                 while (!operators.isEmpty() && operators.peek() != '(') {
                     values.push(applyOperator(operators.pop(), values.pop(), values.pop()));
                 }
@@ -43,7 +47,7 @@ public class Main {
 
         return values.pop();
     }
-
+//function for precedence priority
     private static boolean hasPrecedence(char operator1, char operator2) {
         if (operator2 == '(' || operator2 == ')') return false;
         return (operator1 != '*' && operator1 != '/') || (operator2 != '+' && operator2 != '-');
